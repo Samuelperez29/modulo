@@ -40,7 +40,7 @@
                                 <span class="badge bg-danger badge-estado ms-1">stock bajo</span>
                             {% endif %}
                         </td>
-                        <td><small>{{ p.fecha_creacion|date:"d/m/Y" }}</small></td>
+                        <td><small>{{ p.fecha_creacion|date:"d/m/Y H:i" }}</small></td>
                         <td>
                             <a href="{% url 'producto' pk=p.id_productos %}" class="btn btn-outline-primary btn-sm">Ver</a>
                             <a href="{% url 'producto_update' pk=p.id_productos %}" class="btn btn-outline-secondary btn-sm">Editar</a>

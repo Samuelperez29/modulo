@@ -20,11 +20,7 @@ def home(request):
             return render(request, 'home.html', {})
     else:
         if request.user.is_authenticated:
-            productos = Producto.objects.all().order_by('-fecha_creacion')
-            paginator = Paginator(productos, 10)
-            page = request.GET.get('page')
-            page_obj = paginator.get_page(page)
-            return render(request, 'home.html', {'productos': page_obj})
+            return redirect('productos')
         return render(request, 'home.html', {})
 
 

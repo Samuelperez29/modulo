@@ -137,12 +137,10 @@
                     <form method="POST" action="{% url 'home' %}">
                         {% csrf_token %}
                         <div class="mb-3">
-                            <label class="form-label small fw-medium text-muted">Usuario</label>
-                            <input type="text" class="form-control" name="username" placeholder="Ingresa tu usuario" required>
+                            <input type="text" class="form-control" name="username" placeholder="Usuario" required>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label small fw-medium text-muted">Contrasena</label>
-                            <input type="password" class="form-control" name="password" placeholder="Ingresa tu contrasena" required>
+                            <input type="password" class="form-control" name="password" placeholder="Contrasena" required>
                         </div>
                         <button type="submit" class="btn btn-green w-100 py-2 fw-medium">Ingresar</button>
                     </form>

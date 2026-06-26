@@ -28,32 +28,26 @@
                     </div>
                     {% endif %}
                     <div class="mb-2">
-                        <label class="form-label small fw-medium text-muted">Nombre de usuario</label>
-                        <input type="text" name="username" class="form-control" placeholder="usuario" maxlength="150" required id="id_username">
+                        <input type="text" name="username" class="form-control" placeholder="Nombre de usuario" maxlength="150" required id="id_username">
                         <div class="form-text small">{{ form.username.help_text }}</div>
                     </div>
                     <div class="mb-2">
-                        <label class="form-label small fw-medium text-muted">Correo electronico</label>
-                        <input type="email" name="email" class="form-control" placeholder="correo@ejemplo.com" required id="id_email">
+                        <input type="email" name="email" class="form-control" placeholder="Correo electronico" required id="id_email">
                     </div>
                     <div class="row g-2 mb-2">
                         <div class="col">
-                            <label class="form-label small fw-medium text-muted">Nombre</label>
-                            <input type="text" name="first_name" class="form-control" placeholder="nombre" id="id_first_name">
+                            <input type="text" name="first_name" class="form-control" placeholder="Nombre" id="id_first_name">
                         </div>
                         <div class="col">
-                            <label class="form-label small fw-medium text-muted">Apellido</label>
-                            <input type="text" name="last_name" class="form-control" placeholder="apellido" id="id_last_name">
+                            <input type="text" name="last_name" class="form-control" placeholder="Apellido" id="id_last_name">
                         </div>
                     </div>
                     <div class="mb-2">
-                        <label class="form-label small fw-medium text-muted">Contrasena</label>
-                        <input type="password" name="password1" class="form-control" placeholder="contrasena" required id="id_password1">
+                        <input type="password" name="password1" class="form-control" placeholder="Contrasena" required id="id_password1">
                         <div class="form-text small">{{ form.password1.help_text }}</div>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label small fw-medium text-muted">Confirmar contrasena</label>
-                        <input type="password" name="password2" class="form-control" placeholder="repite la contrasena" required id="id_password2">
+                        <input type="password" name="password2" class="form-control" placeholder="Confirmar contrasena" required id="id_password2">
                         <div class="form-text small">{{ form.password2.help_text }}</div>
                     </div>
                     <button type="submit" class="btn btn-green w-100 py-2 fw-medium">Crear cuenta</button>

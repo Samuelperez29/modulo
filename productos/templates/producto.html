@@ -3,36 +3,46 @@
 
 <div class="row justify-content-center">
     <div class="col-md-8">
-        <div class="card card-custom">
-            <div class="card-header bg-white py-3">
-                <h5 class="mb-0">{{ producto.nombre }}</h5>
+        <div class="card card-custom border-0">
+            <div class="card-header bg-white py-3 border-bottom d-flex align-items-center gap-2">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0d6b3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>
+                </svg>
+                <h5 class="mb-0 fw-semibold">{{ producto.nombre }}</h5>
             </div>
-            <div class="card-body">
-                <div class="row mb-3">
-                    <div class="col-sm-4 text-muted">ID</div>
-                    <div class="col-sm-8 fw-bold">{{ producto.id_productos }}</div>
+            <div class="card-body p-4">
+                <div class="row border-bottom py-3">
+                    <div class="col-sm-4 text-muted small fw-medium">ID</div>
+                    <div class="col-sm-8 fw-medium">{{ producto.id_productos }}</div>
                 </div>
-                <div class="row mb-3">
-                    <div class="col-sm-4 text-muted">Nombre</div>
+                <div class="row border-bottom py-3">
+                    <div class="col-sm-4 text-muted small fw-medium">Nombre</div>
                     <div class="col-sm-8">{{ producto.nombre }}</div>
                 </div>
-                <div class="row mb-3">
-                    <div class="col-sm-4 text-muted">Cantidad</div>
-                    <div class="col-sm-8">{{ producto.cantidad }}</div>
+                <div class="row border-bottom py-3">
+                    <div class="col-sm-4 text-muted small fw-medium">Cantidad</div>
+                    <div class="col-sm-8">
+                        <span class="badge bg-light text-dark rounded-pill px-3 py-2">{{ producto.cantidad }}</span>
+                    </div>
                 </div>
-                <div class="row mb-3">
-                    <div class="col-sm-4 text-muted">Descripcion</div>
-                    <div class="col-sm-8">{{ producto.descripcion|default:"Sin descripcion" }}</div>
+                <div class="row border-bottom py-3">
+                    <div class="col-sm-4 text-muted small fw-medium">Descripcion</div>
+                    <div class="col-sm-8">{{ producto.descripcion|default:"<span class='text-muted fst-italic'>Sin descripcion</span>" }}</div>
                 </div>
-                <div class="row mb-3">
-                    <div class="col-sm-4 text-muted">Fecha de creacion</div>
+                <div class="row py-3">
+                    <div class="col-sm-4 text-muted small fw-medium">Fecha de creacion</div>
                     <div class="col-sm-8">{{ producto.fecha_creacion|date:"d/m/Y H:i" }}</div>
                 </div>
             </div>
-            <div class="card-footer bg-white py-3">
-                <a href="{% url 'productos' %}" class="btn btn-secondary">Volver</a>
-                <a href="{% url 'producto_update' pk=producto.id_productos %}" class="btn btn-green">Editar</a>
-                <a href="{% url 'producto_delete' pk=producto.id_productos %}" class="btn btn-outline-danger" onclick="return confirm('Seguro de eliminar este producto?')">Eliminar</a>
+            <div class="card-footer bg-white py-3 border-top d-flex gap-2">
+                <a href="{% url 'productos' %}" class="btn btn-outline-secondary px-4">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-1">
+                        <line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/>
+                    </svg>
+                    Volver
+                </a>
+                <a href="{% url 'producto_update' pk=producto.id_productos %}" class="btn btn-green px-4">Editar</a>
+                <a href="{% url 'producto_delete' pk=producto.id_productos %}" class="btn btn-outline-danger px-4" onclick="return confirm('Seguro de eliminar este producto?')">Eliminar</a>
             </div>
         </div>
     </div>

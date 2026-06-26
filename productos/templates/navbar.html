@@ -1,6 +1,13 @@
-<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #1a6b3c;">
+<nav class="navbar navbar-expand-lg navbar-dark" style="background: linear-gradient(135deg, #0d6b3c, #0a522d);">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="{% url 'home' %}">Inventario</a>
+        <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="{% url 'home' %}">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                <line x1="12" y1="22.08" x2="12" y2="12"/>
+            </svg>
+            Inventario
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -8,20 +15,20 @@
             <ul class="navbar-nav ms-auto">
                 {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'productos' %}">Productos</a>
+                        <a class="nav-link px-3" href="{% url 'productos' %}">Productos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'producto_create' %}">Nuevo producto</a>
+                        <a class="nav-link px-3" href="{% url 'producto_create' %}">Nuevo producto</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'logout' %}">Salir</a>
+                    <li class="nav-item ms-2">
+                        <a class="nav-link btn btn-outline-light btn-sm px-3 rounded-pill" href="{% url 'logout' %}">Salir</a>
                     </li>
                 {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'register' %}">Registrarse</a>
+                        <a class="nav-link px-3" href="{% url 'register' %}">Registrarse</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'home' %}">Ingresar</a>
+                    <li class="nav-item ms-2">
+                        <a class="nav-link btn btn-outline-light btn-sm px-3 rounded-pill" href="{% url 'home' %}">Ingresar</a>
                     </li>
                 {% endif %}
             </ul>

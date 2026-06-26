@@ -21,14 +21,9 @@ def home(request):
     else:
         if request.user.is_authenticated:
             productos = Producto.objects.all().order_by('-fecha_creacion')
-            total_productos = productos.count()
             paginator = Paginator(productos, 10)
             page = request.GET.get('page')
             page_obj = paginator.get_page(page)
-            context = {
-                'productos': page_obj,
-                'total_productos': total_productos,
-            }
             return render(request, 'home.html', context)
         return render(request, 'home.html', {})
 

@@ -15,8 +15,6 @@
                         <th>ID</th>
                         <th>Nombre</th>
                         <th>Cantidad</th>
-                        <th>Stock minimo</th>
-                        <th>Estado</th>
                         <th>Creado</th>
                         <th>Acciones</th>
                     </tr>
@@ -27,19 +25,6 @@
                         <td>{{ p.id_productos }}</td>
                         <td>{{ p.nombre }}</td>
                         <td>{{ p.cantidad }}</td>
-                        <td>{{ p.stock_minimo }}</td>
-                        <td>
-                            {% if p.estado == 'activo' %}
-                                <span class="badge bg-success badge-estado">{{ p.estado }}</span>
-                            {% elif p.estado == 'pendiente' %}
-                                <span class="badge bg-warning text-dark badge-estado">{{ p.estado }}</span>
-                            {% else %}
-                                <span class="badge bg-secondary badge-estado">{{ p.estado }}</span>
-                            {% endif %}
-                            {% if p.cantidad < p.stock_minimo %}
-                                <span class="badge bg-danger badge-estado ms-1">stock bajo</span>
-                            {% endif %}
-                        </td>
                         <td><small>{{ p.fecha_creacion|date:"d/m/Y H:i" }}</small></td>
                         <td>
                             <a href="{% url 'producto' pk=p.id_productos %}" class="btn btn-outline-primary btn-sm">Ver</a>
@@ -49,7 +34,7 @@
                     </tr>
                     {% empty %}
                     <tr>
-                        <td colspan="7" class="text-center py-4 text-muted">No hay productos registrados</td>
+                        <td colspan="5" class="text-center py-4 text-muted">No hay productos registrados</td>
                     </tr>
                     {% endfor %}
                 </tbody>

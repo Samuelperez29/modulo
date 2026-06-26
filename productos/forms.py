@@ -36,9 +36,7 @@ class ProductoForm(forms.ModelForm):
     nombre = forms.CharField(label="", widget=forms.TextInput(attrs={'placeholder': 'nombre del producto', 'class': 'form-control'}))
     cantidad = forms.IntegerField(label="", widget=forms.NumberInput(attrs={'placeholder': 'cantidad', 'class': 'form-control'}))
     descripcion = forms.CharField(required=False, label="", widget=forms.Textarea(attrs={'placeholder': 'descripcion (opcional)', 'class': 'form-control', 'rows': 3}))
-    stock_minimo = forms.IntegerField(label="", widget=forms.NumberInput(attrs={'placeholder': 'stock minimo', 'class': 'form-control'}))
-    estado = forms.ChoiceField(label="", choices=[('pendiente', 'Pendiente'), ('activo', 'Activo'), ('inactivo', 'Inactivo')], widget=forms.Select(attrs={'class': 'form-control'}))
 
     class Meta:
         model = Producto
-        fields = ['nombre', 'cantidad', 'descripcion', 'stock_minimo', 'estado']
+        fields = ['nombre', 'cantidad', 'descripcion']

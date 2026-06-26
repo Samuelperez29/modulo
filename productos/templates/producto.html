@@ -4,17 +4,8 @@
 <div class="row justify-content-center">
     <div class="col-md-8">
         <div class="card card-custom">
-            <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+            <div class="card-header bg-white py-3">
                 <h5 class="mb-0">{{ producto.nombre }}</h5>
-                <span>
-                    {% if producto.estado == 'activo' %}
-                        <span class="badge bg-success badge-estado">{{ producto.estado }}</span>
-                    {% elif producto.estado == 'pendiente' %}
-                        <span class="badge bg-warning text-dark badge-estado">{{ producto.estado }}</span>
-                    {% else %}
-                        <span class="badge bg-secondary badge-estado">{{ producto.estado }}</span>
-                    {% endif %}
-                </span>
             </div>
             <div class="card-body">
                 <div class="row mb-3">
@@ -27,16 +18,7 @@
                 </div>
                 <div class="row mb-3">
                     <div class="col-sm-4 text-muted">Cantidad</div>
-                    <div class="col-sm-8">
-                        {{ producto.cantidad }}
-                        {% if producto.cantidad < producto.stock_minimo %}
-                            <span class="badge bg-danger ms-2">Stock bajo</span>
-                        {% endif %}
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <div class="col-sm-4 text-muted">Stock minimo</div>
-                    <div class="col-sm-8">{{ producto.stock_minimo }}</div>
+                    <div class="col-sm-8">{{ producto.cantidad }}</div>
                 </div>
                 <div class="row mb-3">
                     <div class="col-sm-4 text-muted">Descripcion</div>

@@ -13,8 +13,6 @@ class Producto(models.Model):
     cantidad = models.IntegerField()
     fecha_creacion = models.DateTimeField(auto_now_add=True)
     descripcion = models.TextField(null=True, blank=True)
-    stock_minimo = models.IntegerField(default=5)
-    estado = models.CharField(max_length=20, default='pendiente')
     eliminado = models.BooleanField(default=False)
     fecha_eliminacion = models.DateTimeField(null=True, blank=True)
     eliminado_por_id = models.IntegerField(null=True, blank=True)

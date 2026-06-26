@@ -3,7 +3,7 @@
 
 {% if user.is_authenticated %}
     <div class="row mb-4">
-        <div class="col-md-4 mb-3">
+        <div class="col-md-6 mb-3">
             <div class="card card-custom text-white" style="background: linear-gradient(135deg, #1a6b3c, #2d9b5a);">
                 <div class="card-body text-center py-4">
                     <h5 class="card-title">Total productos</h5>
@@ -11,18 +11,10 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4 mb-3">
-            <div class="card card-custom text-white" style="background: linear-gradient(135deg, #b8860b, #d4a017);">
-                <div class="card-body text-center py-4">
-                    <h5 class="card-title">Stock bajo</h5>
-                    <h2 class="display-4 fw-bold">{{ stock_bajo }}</h2>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 mb-3">
+        <div class="col-md-6 mb-3">
             <div class="card card-custom text-white" style="background: linear-gradient(135deg, #1a5276, #2e86c1);">
                 <div class="card-body text-center py-4">
-                    <h5 class="card-title">Productos activos</h5>
+                    <h5 class="card-title">Productos registrados</h5>
                     <h2 class="display-4 fw-bold">{{ productos.paginator.count }}</h2>
                 </div>
             </div>
@@ -42,8 +34,7 @@
                             <th>ID</th>
                             <th>Nombre</th>
                             <th>Cantidad</th>
-                            <th>Stock minimo</th>
-                            <th>Estado</th>
+                            <th>Creado</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
@@ -53,16 +44,7 @@
                             <td>{{ p.id_productos }}</td>
                             <td>{{ p.nombre }}</td>
                             <td>{{ p.cantidad }}</td>
-                            <td>{{ p.stock_minimo }}</td>
-                            <td>
-                                {% if p.estado == 'activo' %}
-                                    <span class="badge bg-success badge-estado">{{ p.estado }}</span>
-                                {% elif p.estado == 'pendiente' %}
-                                    <span class="badge bg-warning text-dark badge-estado">{{ p.estado }}</span>
-                                {% else %}
-                                    <span class="badge bg-secondary badge-estado">{{ p.estado }}</span>
-                                {% endif %}
-                            </td>
+                            <td><small>{{ p.fecha_creacion|date:"d/m/Y" }}</small></td>
                             <td>
                                 <a href="{% url 'producto' pk=p.id_productos %}" class="btn btn-outline-primary btn-sm">Ver</a>
                                 <a href="{% url 'producto_update' pk=p.id_productos %}" class="btn btn-outline-secondary btn-sm">Editar</a>
@@ -70,7 +52,7 @@
                         </tr>
                         {% empty %}
                         <tr>
-                            <td colspan="6" class="text-center py-4 text-muted">No hay productos registrados</td>
+                            <td colspan="5" class="text-center py-4 text-muted">No hay productos registrados</td>
                         </tr>
                         {% endfor %}
                     </tbody>

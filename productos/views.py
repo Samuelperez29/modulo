@@ -24,7 +24,7 @@ def home(request):
             paginator = Paginator(productos, 10)
             page = request.GET.get('page')
             page_obj = paginator.get_page(page)
-            return render(request, 'home.html', context)
+            return render(request, 'home.html', {'productos': page_obj})
         return render(request, 'home.html', {})
 
 
